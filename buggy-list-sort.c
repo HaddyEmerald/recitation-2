@@ -39,7 +39,7 @@ void bubble_sort(struct link* head) {
     do {
       struct link* curr = head;
       swapped = 0;
-      while (curr != NULL) {
+      while (curr->next != NULL) {
         if (curr->val > curr->next->val) {
           swap(&curr->val, &curr->next->val);
           swapped = 1;
@@ -80,6 +80,16 @@ int main(int argc, char const *argv[]) {
     printf("  %d", curr->val);
   }
   printf("\n");
+
+  /*
+   * Frees the memory
+   */
+  struct link* curr = head;
+  while (curr != NULL) {
+    struct link* next = curr->next;
+    free(curr);
+    curr = next;
+  }
 
   return 0;
 }

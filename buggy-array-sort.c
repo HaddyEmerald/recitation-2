@@ -26,7 +26,7 @@ void swap(int* a, int* b) {
  */
 void insertion_sort(int* array, int n) {
   for (int i = 1; i < n; i++) {
-    for (int j = i; j >= 0; j--) {
+    for (int j = i; j > 0; j--) {
       if (array[j-1] >= array[j]) {
         break;
       }
@@ -63,6 +63,8 @@ int main(int argc, char const *argv[]) {
     printf("  %d", array[i]);
   }
   printf("\n");
+
+  free(array);
 
   return 0;
 }
